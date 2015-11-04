@@ -43,7 +43,7 @@ habraconverter = (function () {
     }
 
     var STYLES = {
-        italic: {open: '<em>', close: '</em>'},
+        italic: {open: '<i>', close: '</i>'},
         bold: {open: '<b>', close: '</b>'},
         underlined: {open: '<u>', close: '</u>'},
         strikeout: {open: '<s>', close: '</s>'},
