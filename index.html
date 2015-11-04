@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Хабраконвертер</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="habraconverter.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="habraconverter.js"></script>
+    <script type="text/javascript">
+        function clearInput() {
+            document.getElementById('rich-input').innerHTML = '';
+        }
+
+        function convertInput() {
+            document.getElementById('habra-output').value = habraconverter.convert(document.getElementById('rich-input'));
+        }
+    </script>
+</head>
+<body>
+<div style="width: 90%; margin: auto;">
+    <header><h1>Хабраконвертер</h1></header>
+
+    <div>
+        <p>
+            Хабраконвертер преобразует текст, созданный в текстовом процессоре (Google Docs, Word или любом другом) в
+            размеченный текст, пригодный для публикации статьи на хабре.
+        </p>
+
+        <p>
+            Поддерживаются жирный/италик/перечекнутый/подчеркнутый/sup/sub стили, ссылки, заголовки, списки, таблицы. Чтобы поддержать
+            вставку исходного кода, весь текст с шрифтом Courier New обрамляется тегом source (атрибут lang, правда, придется
+            вставлять вручную).
+        </p>
+
+        <p>
+            При вставке из Google Docs картинки вставляются с ссылками на хранилище Google-Docs — просматриваться будут, но стоит их перезалить.
+        </p>
+
+        <p>
+            <span class="label label-warning">Внимание!</span> К сожалению, конвертация может нарушить форматирование (например, вставить лишние переводы строк).
+            Проверьте статью внимательно перед тем как ее публиковать!
+        </p>
+    </div>
+
+    <div class="inputs-layout">
+        <div class="input-block">
+            <div class="buttons">
+                <button class="btn btn-success" onclick="convertInput()">Конвертировать</button>
+                <button class="btn" onclick="clearInput()">Очистить</button>
+            </div>
+            <div class="block-description">Скопируйте сюда текст для конвертации</div>
+            <div class="uneditable-input" id="rich-input" contenteditable="true">
+            </div>
+        </div>
+        <div class="output-block">
+            <div class="block-description">При клике автоматически выделится весь результат</div>
+            <label>
+                <textarea id="habra-output" readonly onclick="this.focus(); this.select();"></textarea>
+            </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
